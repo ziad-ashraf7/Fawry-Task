@@ -1,3 +1,7 @@
+import Cart.Cart;
+import Customer.*;
+import Product.*;
+
 import java.util.Calendar;
 import java.util.Date;
 
@@ -8,7 +12,7 @@ public class Main {
         cal.add(Calendar.DAY_OF_YEAR, 30);
         Date expirDate = cal.getTime();
         Product cheese = new ShippableExpirableProduct("Cheese", 10, 50, expirDate, 300);
-        Product biscuits = new ExpireProduct("Bescuits", 50, 2, expirDate);
+        Product biscuits = new ExpirableProduct("Bescuits", 50, 2, expirDate);
         Product Tv = new ShippableProduct("TV", 10, 10, 50);
         Product mobile = new NonExpireNonShippableProduct("Mobile", 100, 5);
 

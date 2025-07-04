@@ -1,3 +1,5 @@
+package Customer;
+
 public class Customer {
     private double balance;
     private String name;

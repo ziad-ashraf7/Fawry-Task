@@ -1,4 +1,6 @@
-import java.io.Serializable;
+package Product;
+
+import Product.Interfaces.Shippable;
 
 public class ShippableProduct extends Product implements Shippable {
     double weight;
@@ -9,7 +11,7 @@ public class ShippableProduct extends Product implements Shippable {
 
 
     @Override
-    public boolean isValidToHave(int order) {
+    public boolean isAvailableToOrder(int order) {
         return order <= this.quantity;
     }
 

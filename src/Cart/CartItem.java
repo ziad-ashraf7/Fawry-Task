@@ -1,3 +1,7 @@
+package Cart;
+
+import Product.Product;
+
 public class CartItem {
     private Product product;
     private int amount;

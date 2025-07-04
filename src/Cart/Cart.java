@@ -1,5 +1,8 @@
+package Cart;
+
+import Product.Product;
+
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Cart {
     public ArrayList<CartItem> getItems() {
@@ -9,14 +12,14 @@ public class Cart {
     private ArrayList<CartItem> items = new ArrayList<>();
 
     public void add(Product product, int amount) {
-        if(!product.isValidToHave(amount)) {
-            throw new IllegalArgumentException("Product: " + product.getName()+ " is not available or expired");
+        if(!product.isAvailableToOrder(amount)) {
+            throw new IllegalArgumentException("Product.Product: " + product.getName()+ " is not available or expired");
         }
         for(CartItem item : items) {
             if(item.getProduct().equals(product)) {
                 int newAmount = item.getAmount() + amount;
-                if(!product.isValidToHave(newAmount)) {
-                    throw new IllegalArgumentException("Product: " + product.getName()+ " is not available or expired");
+                if(!product.isAvailableToOrder(newAmount)) {
+                    throw new IllegalArgumentException("Product.Product: " + product.getName()+ " is not available or expired");
                 }
                 item.setAmount(newAmount);
                 return;

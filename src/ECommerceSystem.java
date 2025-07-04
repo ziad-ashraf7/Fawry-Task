@@ -1,4 +1,9 @@
-import java.awt.*;
+import Cart.Cart;
+import Cart.CartItem;
+import Customer.Customer;
+import Product.Interfaces.Shippable;
+import Services.ShippingService;
+
 import java.util.ArrayList;
 
 public class ECommerceSystem {
@@ -13,8 +18,8 @@ public class ECommerceSystem {
         ArrayList<Shippable> shippableItems = new ArrayList<>();
 
         for(CartItem item : items) {
-            if(!item.getProduct().isValidToHave(item.getAmount())){
-                throw new IllegalArgumentException("Product: " + item.getProduct().getName()+ " is not available or expired");
+            if(!item.getProduct().isAvailableToOrder(item.getAmount())){
+                throw new IllegalArgumentException("Product.Product: " + item.getProduct().getName()+ " is not available or expired");
             }
         }
 
@@ -30,7 +35,7 @@ public class ECommerceSystem {
         double totalcost = subtotal + shippingFees;
 
         if(customer.getBalance() < totalcost){
-            throw new IllegalArgumentException("Customer doesn't have enough Balance");
+            throw new IllegalArgumentException("Customer.Customer doesn't have enough Balance");
         }
 
         if(!shippableItems.isEmpty()){

@@ -1,14 +1,16 @@
+package Product;
+
 import java.util.Date;
 
-public class ExpireProduct extends Product{
+public class ExpirableProduct extends Product {
     Date expireDate;
-    public ExpireProduct(String name,int price, int quantity, Date expireDate) {
+    public ExpirableProduct(String name, int price, int quantity, Date expireDate) {
         super(name, price, quantity);
         this.expireDate = expireDate;
     }
 
     @Override
-    public boolean isValidToHave(int order) {
+    public boolean isAvailableToOrder(int order) {
         Date currentDate = new Date();
         return order <= this.quantity && expireDate.after(currentDate);
     }

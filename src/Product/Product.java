@@ -1,3 +1,5 @@
+package Product;
+
 public abstract class Product {
     String name;
     int price;
@@ -33,5 +35,5 @@ public abstract class Product {
         this.price = price;
     }
 
-    public abstract boolean isValidToHave(int order);
+    public abstract boolean isAvailableToOrder(int order);
 }
