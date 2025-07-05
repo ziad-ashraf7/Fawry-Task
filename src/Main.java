@@ -1,6 +1,7 @@
 import Cart.Cart;
 import Customer.*;
 import Product.*;
+import Services.ECommerceSystem;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -11,23 +12,24 @@ public class Main {
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.DAY_OF_YEAR, 30);
         Date expirDate = cal.getTime();
-        Product cheese = new ShippableExpirableProduct("Cheese", 10, 50, expirDate, 300);
-        Product biscuits = new ExpirableProduct("Bescuits", 50, 2, expirDate);
-        Product Tv = new ShippableProduct("TV", 10, 10, 50);
-        Product mobile = new NonExpireNonShippableProduct("Mobile", 100, 5);
+
+        // Listing some products with different types
+        Product cheese = new ShippableExpirableProduct("Cheese", 1, 5, expirDate, 300);
+        Product biscuits = new ExpirableProduct("Bescuits", 50, 1, expirDate);
+        Product Tv = new ShippableProduct("TV", 10, 1, 100);
+        Product scratchCard = new NonExpireNonShippableProduct("Mobile", 100, 5);
 
 
 
         Customer customer = new Customer("ziad", 1000);
         Cart cart = new Cart();
         cart.add(biscuits, 1);
-        cart.add(biscuits, 1);
-        cart.add(mobile,1);
-        cart.add(Tv, 1);
+        cart.add(Tv,1 );
+        cart.add(cheese, 5);
+        cart.add(scratchCard,5);
 
 
 
-
-        ec.checkOut(customer , cart);
+        ECommerceSystem.checkOut(customer , cart);
     }
 }

@@ -20,7 +20,7 @@ public class Customer {
         this.name = name;
     }
 
-    public void pay(double amount) {
+    public void withdraw(double amount) {
         if(this.balance < amount) {
             throw new IllegalArgumentException("Insufficient balance");
         }
